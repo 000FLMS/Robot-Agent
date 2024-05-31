@@ -1,0 +1,140 @@
+{
+  "0": {
+    "Klaus Mueller": {
+      "movement": [
+        127,
+        46
+      ],
+      "pronunciatio": "\ud83d\ude34",
+      "description": "sleeping @ the Ville:Dorm for Oak Hill College:Klaus Mueller's room:bed",
+      "chat": null
+    },
+    "Isabella Rodriguez": {
+      "movement": [
+        73,
+        14
+      ],
+      "pronunciatio": "\ud83d\ude34",
+      "description": "sleeping @ the Ville:Isabella Rodriguez's apartment:main room:bed",
+      "chat": null
+    },
+    "Maria Lopez": {
+      "movement": [
+        123,
+        57
+      ],
+      "pronunciatio": "\ud83d\ude34",
+      "description": "sleeping @ the Ville:Dorm for Oak Hill College:Maria Lopez's room:bed",
+      "chat": null
+    }
+  },
+  "1": {},
+  "2": {},
+  "3": {},
+  "4": {},
+  "5": {},
+  "6": {},
+  "7": {},
+  "8": {},
+  "9": {},
+  "10": {},
+  "11": {},
+  "12": {},
+  "13": {},
+  "14": {},
+  "15": {},
+  "16": {},
+  "17": {},
+  "18": {},
+  "19": {},
+  "20": {},
+  "21": {},
+  "22": {},
+  "23": {},
+  "24": {},
+  "25": {},
+  "26": {},
+  "27": {},
+  "28": {},
+  "29": {},
+  "30": {},
+  "31": {},
+  "32": {},
+  "33": {},
+  "34": {},
+  "35": {},
+  "36": {
+    "Isabella Rodriguez": {
+      "movement": [
+        72,
+        14
+      ],
+      "pronunciatio": "\ud83d\udecc",
+      "description": "waking up and completing her morning routine (stretching and getting out of bed) @ the Ville:Isabella Rodriguez's apartment:main room:bed",
+      "chat": null
+    }
+  },
+  "37": {},
+  "38": {},
+  "39": {},
+  "40": {},
+  "41": {},
+  "42": {
+    "Klaus Mueller": {
+      "movement": [
+        126,
+        46
+      ],
+      "pronunciatio": "\u23f0\ud83d\udecc",
+      "description": "waking up and completing his morning routine (waking up and turning off his alarm) @ the Ville:Dorm for Oak Hill College:Klaus Mueller's room:bed",
+      "chat": null
+    }
+  },
+  "43": {},
+  "44": {},
+  "45": {},
+  "46": {},
+  "47": {},
+  "48": {},
+  "49": {},
+  "50": {},
+  "51": {},
+  "52": {},
+  "53": {},
+  "54": {
+    "Maria Lopez": {
+      "movement": [
+        123,
+        57
+      ],
+      "pronunciatio": "\ud83d\udecf\ufe0f",
+      "description": "waking up and completing her morning routine (stretching in bed) @ the Ville:Dorm for Oak Hill College:Maria Lopez's room:bed",
+      "chat": null
+    }
+  },
+  "55": {},
+  "56": {},
+  "57": {},
+  "58": {},
+  "59": {},
+  "60": {},
+  "61": {},
+  "62": {},
+  "63": {},
+  "64": {},
+  "65": {},
+  "66": {},
+  "67": {},
+  "68": {},
+  "69": {},
+  "70": {},
+  "71": {},
+  "72": {},
+  "73": {},
+  "74": {},
+  "75": {},
+  "76": {},
+  "77": {},
+  "78": {},
+  "79": {}
+}

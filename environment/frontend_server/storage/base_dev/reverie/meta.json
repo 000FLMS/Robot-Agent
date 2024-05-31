@@ -1,0 +1,12 @@
+{
+  "fork_sim_code": "base_dev",
+  "start_date": "May 1, 2024",
+  "curr_time": "May 1, 2024, 10:00:00",
+  "sec_per_step": 10,
+  "maze_name": "the_ville",
+  "persona_names": [
+    "Tom Cat",
+    "He Sihan"    
+  ],
+  "step": 0
+}

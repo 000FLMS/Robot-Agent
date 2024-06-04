@@ -122,6 +122,9 @@ class Persona:
     """
     return retrieve(self, perceived)
 
+  def human_plan(self,  human_name):
+    return human_plan(self, human_name)
+
 
   def plan(self, maze, personas, new_day, retrieved):
     """
@@ -180,6 +183,36 @@ class Persona:
       None
     """
     reflect(self)
+
+  def human_move(self, maze, personas, curr_tile, curr_time):
+    # Updating persona's scratch memory with <curr_tile>. 
+    self.scratch.curr_tile = curr_tile
+
+    # We figure out whether the persona started a new day, and if it is a new
+    # day, whether it is the very first day of the simulation. This is 
+    # important because we set up the persona's long term plan at the start of
+    # a new day. 
+    new_day = False
+    if not self.scratch.curr_time: 
+      new_day = "First day"
+    elif (self.scratch.curr_time.strftime('%A %B %d')
+          != curr_time.strftime('%A %B %d')):
+      new_day = "New day"
+    self.scratch.curr_time = curr_time
+
+    # Main cognitive sequence begins here. 
+    # perceived = self.perceive(maze)
+    # retrieved = self.retrieve(perceived)
+    plan = self.human_plan("He Sihan")
+    self.reflect()
+
+    # <execution> is a triple set that contains the following components: 
+    # <next_tile> is a x,y coordinate. e.g., (58, 9)
+    # <pronunciatio> is an emoji. e.g., "\ud83d\udca4"
+    # <description> is a string description of the movement. e.g., 
+    #   writing her next novel (editing her novel) 
+    #   @ double studio:double studio:common room:sofa
+    return self.execute(maze, personas, plan)
 
 
   def move(self, maze, personas, curr_tile, curr_time):

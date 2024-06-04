@@ -157,9 +157,7 @@ def execute(persona, maze, personas, plan):
 
   description = f"{persona.scratch.act_description}"
   description += f" @ {persona.scratch.act_address}"
-  with open("test.txt","a") as f:
-    f.write(description + '\n')
-    f.write(str(persona.scratch.planned_path) + '\n')
+  
   execution = ret, persona.scratch.act_pronunciatio, description
   return execution
 

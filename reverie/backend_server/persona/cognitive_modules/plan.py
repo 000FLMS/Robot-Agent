@@ -274,11 +274,24 @@ def generate_act_obj_event_triple(act_game_object, act_obj_desc, persona):
   return run_gpt_prompt_act_obj_event_triple(act_game_object, act_obj_desc, persona)[0]
 
 
-def generate_convo(maze, init_persona, target_persona): 
-  curr_loc = maze.access_tile(init_persona.scratch.curr_tile)
+def generate_agent_human_convo(cur_persona, human_name):
+  convo = agent_human_chat(cur_persona, human_name)
+  all_utt = ""
+  for row in convo: 
+    speaker = row[0]
+    utt = row[1]
+    all_utt += f"{speaker}: {utt}\n"
 
+  convo_length = math.ceil(int(len(all_utt)/8) / 30)
+
+  if debug: print ("GNS FUNCTION: <generate_convo>")
+  return convo, convo_length
+
+
+def generate_convo(maze, init_persona, target_persona): 
   # convo = run_gpt_prompt_create_conversation(init_persona, target_persona, curr_loc)[0]
   # convo = agent_chat_v1(maze, init_persona, target_persona)
+
   convo = agent_chat_v2(maze, init_persona, target_persona)
   all_utt = ""
 
@@ -354,16 +367,17 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
   truncated_fin = False 
 
   print ("DEBUG::: ", persona.scratch.name)
-  for act, dur in p.scratch.f_daily_schedule: 
-    if (dur_sum >= start_hour * 60) and (dur_sum < end_hour * 60): 
+  for act, dur in p.scratch.f_daily_schedule:
+    dur_sum += dur 
+    if (dur_sum > start_hour * 60) and (dur_sum <= end_hour * 60): 
       main_act_dur += [[act, dur]]
-      if dur_sum <= today_min_pass and dur <= today_min_pass:
+      if dur_sum <= today_min_pass:
         truncated_act_dur += [[act, dur]]
       elif dur_sum > today_min_pass and not truncated_fin:
         # We need to insert that last act, duration list like this one: 
         # e.g., ['wakes up and completes her morning routine (wakes up...)', 2]
         truncated_act_dur += [[p.scratch.f_daily_schedule[count][0], 
-                               dur_sum - today_min_pass]] 
+                               dur - dur_sum + today_min_pass]] 
         #truncated_act_dur[-1][-1] -= (dur_sum - today_min_pass) ######## DEC 7 DEBUG;.. is the +1 the right thing to do??? 
         # truncated_act_dur[-1][-1] -= (dur_sum - today_min_pass + 1) ######## DEC 7 DEBUG;.. is the +1 the right thing to do??? 
         print ("DEBUG::: ", truncated_act_dur)
@@ -373,7 +387,6 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
       truncated_act_dur += [[p.scratch.f_daily_schedule[count - 1][0], 
                               today_min_pass]] 
       truncated_fin = True
-    dur_sum += dur
     count += 1
 
   persona_name = persona.name 
@@ -383,8 +396,8 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
   # x = truncated_act_dur[-1][0].split("(")[0].strip() + " (on the way to " + truncated_act_dur[-1][0].split("(")[-1][:-1] + ")"
   # truncated_act_dur[-1][0] = x 
 
-  if "(" in truncated_act_dur[-1][0]: 
-    inserted_act = truncated_act_dur[-1][0].split("(")[0].strip() + " (" + inserted_act + ")"
+  # if "(" in truncated_act_dur[-1][0]: 
+  #   inserted_act = truncated_act_dur[-1][0].split("(")[0].strip() + " (" + inserted_act + ")"
   with open("test.txt", "a") as f:
     f.write(f"{str(today_min_pass)} , {start_hour},{end_hour}\n")
     f.write(str(main_act_dur) + '\n=====\n')
@@ -834,6 +847,7 @@ def _create_react(persona, inserted_act, inserted_act_dur,
 
   else: 
     end_hour = start_hour + 2
+  end_hour = 23
   end_hour = int(end_hour)
 
   dur_sum = 0
@@ -866,13 +880,48 @@ def _create_react(persona, inserted_act, inserted_act_dur,
                            act_obj_event,
                            act_start_time)
 
+def _agent_human_react(persona, human_name):
+  # There are two personas -- the persona who is initiating the conversation
+  # and the persona who is the target. We get the persona instances here. 
+  cur_persona = persona
+  
+  # Actually creating the conversation here. 
+  convo, duration_min = generate_agent_human_convo(cur_persona, human_name)
+  convo_summary = generate_convo_summary(cur_persona, convo)
+  inserted_act = convo_summary
+  inserted_act_dur = duration_min
+  
+  act_start_time = cur_persona.scratch.act_start_time
+
+  curr_time = cur_persona.scratch.curr_time
+  if curr_time.second != 0: 
+    temp_curr_time = curr_time + datetime.timedelta(seconds=60 - curr_time.second)
+    chatting_end_time = temp_curr_time + datetime.timedelta(minutes=inserted_act_dur)
+  else: 
+    chatting_end_time = curr_time + datetime.timedelta(minutes=inserted_act_dur)
+
+  act_address = f"<persona> {human_name}"
+  act_event = (cur_persona.name, "chat with", human_name)
+  chatting_with = human_name
+  chatting_with_buffer = {}
+  chatting_with_buffer[human_name] = 800
+  act_pronunciatio = "💬" 
+  act_obj_description = None
+  act_obj_pronunciatio = None
+  act_obj_event = (None, None, None)
+
+  _create_react(cur_persona, inserted_act, inserted_act_dur,
+    act_address, act_event, chatting_with, convo, chatting_with_buffer, chatting_end_time,
+    act_pronunciatio, act_obj_description, act_obj_pronunciatio, 
+    act_obj_event, act_start_time)
+
+
 
 def _chat_react(maze, persona, focused_event, reaction_mode, personas):
   # There are two personas -- the persona who is initiating the conversation
   # and the persona who is the target. We get the persona instances here. 
   init_persona = persona
   target_persona = personas[reaction_mode[9:].strip()]
-  curr_personas = [init_persona, target_persona]
   
   # Actually creating the conversation here. 
   convo, duration_min = generate_convo(maze, init_persona, target_persona)
@@ -1021,6 +1070,27 @@ def plan(persona, maze, personas, new_day, retrieved):
 
   return persona.scratch.act_address
 
+def human_plan(persona, human_name): 
+
+  _agent_human_react(persona,human_name)
+  
+  # Step 3: Chat-related state clean up. 
+  # If the persona is not chatting with anyone, we clean up any of the 
+  # chat-related states here. 
+  if persona.scratch.act_event[1] != "chat with":
+    persona.scratch.chatting_with = None
+    persona.scratch.chat = None
+    persona.scratch.chatting_end_time = None
+  # We want to make sure that the persona does not keep conversing with each
+  # other in an infinite loop. So, chatting_with_buffer maintains a form of 
+  # buffer that makes the persona wait from talking to the same target 
+  # immediately after chatting once. We keep track of the buffer value here. 
+  curr_persona_chat_buffer = persona.scratch.chatting_with_buffer
+  for persona_name, buffer_count in curr_persona_chat_buffer.items():
+    if persona_name != persona.scratch.chatting_with: 
+      persona.scratch.chatting_with_buffer[persona_name] -= 1
+
+  return persona.scratch.act_address
 
 
 
@@ -1041,28 +1111,3 @@ def plan(persona, maze, personas, new_day, retrieved):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 

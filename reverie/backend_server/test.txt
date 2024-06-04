@@ -1,0 +1,241 @@
+the Ville:Oak Hill College:hallway:<random>
+attending morning classes for his physics degree (walking to his classroom) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (109, 33), (110, 33), (111, 33), (112, 33)]
+601 , 10,12
+[['waking up and completing his morning routine', 60], ['attending morning classes for his physics degree (walking to his classroom)', 5], ['attending morning classes for his physics degree (greeting his classmates and professor)', 5], ['attending morning classes for his physics degree (taking out his notebook and pen)', 5], ['attending morning classes for his physics degree (listening to the lecture)', 45], ['attending morning classes for his physics degree (taking notes)', 30], ['attending morning classes for his physics degree (participating in class discussions)', 15], ['attending morning classes for his physics degree (packing up his things)', 5], ['attending morning classes for his physics degree (walking to Hobbs Cafe)', 5], ['attending morning classes for his physics degree (ordering his lunch)', 5]]
+=====
+[['waking up and completing his morning routine', 60], ['attending morning classes for his physics degree (walking to his classroom)', 1]]
++++++
+<persona> He Sihan
+conversing about Tom Cat and He Sihan are arranging to meet at the cafe at 10:30 am to discuss questions about the morning lecture on quantum physics. @ <persona> He Sihan
+[]
+<persona> He Sihan
+conversing about Tom Cat and He Sihan are arranging to meet at the cafe at 10:30 am to discuss questions about the morning lecture on quantum physics. @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending morning classes for his physics degree (walking to his classroom) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (109, 34), (110, 34), (111, 34), (112, 34)]
+601 , 10,12
+[['attending morning classes for his physics degree (walking to his classroom)', 5], ['attending morning classes for his physics degree (greeting his classmates and professor)', 5], ['attending morning classes for his physics degree (taking out his notebook and pen)', 5], ['attending morning classes for his physics degree (listening to the lecture)', 45], ['attending morning classes for his physics degree (taking notes)', 30], ['attending morning classes for his physics degree (participating in class discussions)', 15], ['attending morning classes for his physics degree (packing up his things)', 5], ['attending morning classes for his physics degree (walking to Hobbs Cafe)', 5], ['attending morning classes for his physics degree (ordering his lunch)', 5]]
+=====
+[['attending morning classes for his physics degree (walking to his classroom)', 1]]
++++++
+<persona> He Sihan
+conversing about Tom Cat and He Sihan discussing meeting at Hobbs Cafe at 10:30 am to help with physics class @ <persona> He Sihan
+[]
+<persona> He Sihan
+conversing about Tom Cat and He Sihan discussing meeting at Hobbs Cafe at 10:30 am to help with physics class @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending classes (walking to his first class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (108, 32), (109, 32), (109, 31), (110, 31), (111, 31), (112, 31), (113, 31), (114, 31), (115, 31), (116, 31), (117, 31), (118, 31), (119, 31)]
+601 , 10,12
+[['attending classes (walking to his first class)', 5], ['attending classes (taking notes during the lecture)', 45], ['attending classes (participating in a group discussion)', 20], ['attending classes (taking a short break)', 5], ['attending classes (listening to a guest speaker)', 30], ['attending classes (packing up his things and leaving the classroom)', 5], ['attending classes (walking to his next class)', 5], ['attending classes (getting settled in his next class)', 5]]
+=====
+[['attending classes (walking to his first class)', 1]]
++++++
+<persona> He Sihan
+conversing about Tom Cat and He Sihan are planning to study together in the cafe at 10:30 am after physics class. @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending computer science class at Oak Hill College (walking to his computer science class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (108, 32), (109, 32), (110, 32), (111, 32), (112, 32), (113, 32)]
+601 , 10,13
+[['attending computer science class at Oak Hill College (walking to his computer science class)', 5], ['attending computer science class at Oak Hill College (greeting his classmates and professor)', 5], ['attending computer science class at Oak Hill College (taking out his notebook and pen)', 5], ['attending computer science class at Oak Hill College (listening to the lecture)', 45], ['attending computer science class at Oak Hill College (taking notes)', 30], ['attending computer science class at Oak Hill College (participating in class discussions)', 20], ['attending computer science class at Oak Hill College (working on a group project)', 30], ['attending computer science class at Oak Hill College (asking questions to clarify concepts)', 10], ['attending computer science class at Oak Hill College (packing up his belongings)', 5], ['attending computer science class at Oak Hill College (walking back to Hobbs Cafe)', 5], ['attending computer science class at Oak Hill College (ordering his lunch at Hobbs Cafe)', 20]]
+=====
+[['attending computer science class at Oak Hill College (walking to his computer science class)', 1]]
++++++
+<persona> He Sihan
+conversing about Tom Cat asked He Sihan about his morning and He Sihan replied by asking for the current time. @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending classes at Oak Hill College (walking to his first class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (109, 34), (110, 34), (111, 34), (112, 34), (113, 34), (114, 34), (115, 34), (116, 34), (117, 34), (118, 34), (119, 34), (120, 34)]
+601 , 10,12
+[['attending classes at Oak Hill College (walking to his first class)', 5], ['attending classes at Oak Hill College (taking out his notebook and pen)', 5], ['attending classes at Oak Hill College (listening to the lecture)', 50], ['attending classes at Oak Hill College (taking notes)', 30], ['attending classes at Oak Hill College (participating in class discussions)', 20], ['attending classes at Oak Hill College (packing up his things)', 5], ['attending classes at Oak Hill College (walking to his next class)', 5]]
+=====
+[['attending classes at Oak Hill College (walking to his first class)', 1]]
++++++
+<persona> He Sihan
+conversing about Tom Cat and a person exchanging greetings and asking how it's going. @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending a computer science class at Oak Hill College (walking to his computer science class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (108, 32), (109, 32), (110, 32), (111, 32), (112, 32), (113, 32)]
+601 , 10,13
+[['attending a computer science class at Oak Hill College (walking to his computer science class)', 5], ['attending a computer science class at Oak Hill College (greeting his classmates and professor)', 5], ['attending a computer science class at Oak Hill College (taking out his notebook and pen)', 5], ['attending a computer science class at Oak Hill College (listening to the lecture)', 45], ['attending a computer science class at Oak Hill College (taking notes)', 30], ['attending a computer science class at Oak Hill College (participating in class discussions)', 20], ['attending a computer science class at Oak Hill College (working on a group project)', 30], ['attending a computer science class at Oak Hill College (taking a break)', 10], ['attending a computer science class at Oak Hill College (reviewing his notes)', 15], ['attending a computer science class at Oak Hill College (packing up his belongings)', 5], ['attending a computer science class at Oak Hill College (walking back to his dorm)', 5], ['attending a computer science class at Oak Hill College (checking his schedule for the rest of the day)', 5]]
+=====
+[['attending a computer science class at Oak Hill College (walking to his computer science class)', 1]]
++++++
+<persona> He Sihan
+conversing about meeting at 10:30 am at the cafe for a conversation @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending classes at Oak Hill College (walking to his first class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (109, 33), (110, 33), (111, 33), (112, 33), (113, 33), (114, 33), (115, 33), (116, 33)]
+the Ville:Oak Hill College:hallway:<random>
+attending classes at Oak Hill College (walking to his first class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (108, 32), (109, 32), (110, 32), (111, 32)]
+601 , 10,13
+[['attending classes at Oak Hill College (walking to his first class)', 5], ['attending classes at Oak Hill College (taking out his notebook and pen)', 5], ['attending classes at Oak Hill College (listening to the lecture)', 50], ['attending classes at Oak Hill College (taking notes)', 30], ['attending classes at Oak Hill College (participating in class discussions)', 20], ['attending classes at Oak Hill College (taking a break)', 10], ['attending classes at Oak Hill College (reviewing his notes)', 20], ['attending classes at Oak Hill College (asking the professor questions)', 10], ['attending classes at Oak Hill College (packing up his things)', 5], ['attending classes at Oak Hill College (walking to his next class)', 5], ['attending classes at Oak Hill College (taking out his notebook and pen)', 20]]
+=====
+[['attending classes at Oak Hill College (walking to his first class)', 1]]
++++++
+<persona> He Sihan
+conversing about He Sihan and Tom Cat are catching up and exchanging greetings to see how each other is doing. @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending his classes (walking to his first class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (108, 32), (109, 32), (110, 32), (111, 32), (112, 32), (113, 32), (114, 32), (115, 32), (116, 32), (117, 32), (118, 32)]
+the Ville:Oak Hill College:classroom:classroom student seating
+attending a computer science class (walking to his computer science class) @ the Ville:Oak Hill College:classroom:classroom student seating
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (108, 32), (109, 32), (109, 31), (109, 30), (110, 30), (111, 30), (112, 30), (113, 30), (113, 29), (113, 28), (113, 27), (113, 26), (114, 26), (115, 26), (115, 25)]
+601 , 10,12
+[['attending a computer science class (walking to his computer science class)', 5], ['attending a computer science class (greeting his classmates and professor)', 5], ['attending a computer science class (taking out his notebook and pen)', 5], ['attending a computer science class (listening to the lecture)', 45], ['attending a computer science class (taking notes)', 30], ['attending a computer science class (participating in class discussions)', 15], ['attending a computer science class (packing up his things)', 5], ['attending a computer science class (walking back to Hobbs Cafe)', 5], ['attending a computer science class (ordering his lunch)', 5]]
+=====
+[['attending a computer science class (walking to his computer science class)', 1]]
++++++
+<persona> He Sihan
+conversing about He Sihan and Tom Cat are chatting and catching up on how things are going. @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending classes at Oak Hill College (walking to his first class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (108, 32), (109, 32), (109, 31), (109, 30), (110, 30), (111, 30), (112, 30), (113, 30), (114, 30), (115, 30), (116, 30), (117, 30), (118, 30), (119, 30), (120, 30), (121, 30), (122, 30)]
+the Ville:Oak Hill College:hallway:<random>
+attending morning classes at Oak Hill College (walking to his first class) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (108, 32), (109, 32), (109, 31), (109, 30), (110, 30), (111, 30), (112, 30), (113, 30)]
+601 , 10,12
+[['attending morning classes at Oak Hill College (walking to his first class)', 5], ['attending morning classes at Oak Hill College (taking notes during the lecture)', 45], ['attending morning classes at Oak Hill College (participating in a group discussion)', 20], ['attending morning classes at Oak Hill College (taking a short break)', 5], ['attending morning classes at Oak Hill College (reviewing his notes)', 15], ['attending morning classes at Oak Hill College (working on a class assignment)', 30]]
+=====
+[['attending morning classes at Oak Hill College (walking to his first class)', 1]]
++++++
+<persona> He Sihan
+conversing about a conversation between He Sihan and Tom Cat discussing elective courses and making plans to meet at Hobbs Cafe around 12:00 pm after class @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:hallway:<random>
+attending physics class (walking to the physics building) @ the Ville:Oak Hill College:hallway:<random>
+[(123, 55), (123, 54), (124, 54), (124, 53), (124, 52), (124, 51), (123, 51), (122, 51), (121, 51), (120, 51), (119, 51), (118, 51), (117, 51), (117, 50), (117, 49), (117, 48), (117, 47), (116, 47), (115, 47), (114, 47), (113, 47), (112, 47), (111, 47), (110, 47), (109, 47), (108, 47), (108, 46), (108, 45), (108, 44), (108, 43), (108, 42), (108, 41), (108, 40), (108, 39), (108, 38), (108, 37), (108, 36), (108, 35), (108, 34), (108, 33), (109, 33), (110, 33), (111, 33), (112, 33), (113, 33), (114, 33), (115, 33), (116, 33), (117, 33), (118, 33)]
+601 , 10,24
+[['attending physics class (walking to the physics building)', 5], ['attending physics class (greeting his classmates and finding a seat)', 10], ['attending physics class (taking out his notebook and pen)', 5], ['attending physics class (listening to the lecture and taking notes)', 60], ['attending physics class (participating in class discussions)', 20], ['attending physics class (packing up his things and leaving the classroom)', 5], ['attending physics class (walking to the cafeteria)', 10], ['attending physics class (ordering his lunch)', 5], ['having lunch with friends', 60], ['streaming video games on Twitch', 60], ['studying at Hobbs Cafe', 180], ['having dinner', 120], ['streaming video games on Twitch', 60], ['watching TV or hanging out with friends', 120], ['getting ready for bed', 60], ['going to bed', 60], ['sleeping', 0]]
+=====
+[['attending physics class (walking to the physics building)', 1]]
++++++
+<persona> He Sihan
+conversing about two Oak Hill College students, He Sihan and Tom Cat, planning to meet at Hobbs Cafe at 10:30 am to grab coffee and chat @ <persona> He Sihan
+[]
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:classroom:blackboard
+the Ville:Oak Hill College:classroom:blackboard
+601 , 10,23
+[['attending classes or working on school assignments (reviewing his class schedule and assignments)', 10], ['attending classes or working on school assignments (organizing his notes and materials for the class)', 15], ['attending classes or working on school assignments (attending his first class)', 60], ['attending classes or working on school assignments (taking a short break)', 5], ['attending classes or working on school assignments (reviewing his notes from the first class)', 15], ['attending classes or working on school assignments (attending his second class)', 60], ['attending classes or working on school assignments (taking a short break)', 5], ['attending classes or working on school assignments (reviewing his notes from the second class)', 10], ['having lunch at Hobbs Cafe', 60], ['attending classes or working on school assignments', 120], ['streaming or gaming on Twitch', 120], ['having dinner', 60], ['streaming or gaming on Twitch', 120], ['streaming or gaming on Twitch or hanging out at Hobbs Cafe', 60], ['possibly streaming or gaming on Twitch or hanging out at Hobbs Cafe', 60]]
+=====
+[['attending classes or working on school assignments (reviewing his class schedule and assignments)', 1]]
++++++
+<persona> Leo
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+601 , 10,23
+[['attending classes at Oak Hill College (walking to his first class)', 5], ['attending classes at Oak Hill College (taking notes during the lecture)', 45], ['attending classes at Oak Hill College (participating in a group discussion)', 30], ['attending classes at Oak Hill College (taking a short break)', 10], ['attending classes at Oak Hill College (working on a class assignment)', 45], ['attending classes at Oak Hill College (submitting the assignment)', 5], ['attending classes at Oak Hill College (walking to his next class)', 40], ['studying at Hobbs Cafe', 180], ['streaming on Twitch', 60], ['having dinner', 60]]
+=====
+[['attending classes at Oak Hill College (walking to his first class)', 1]]
++++++
+<persona> He Sihan
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:classroom:classroom student seating
+the Ville:Oak Hill College:classroom:classroom student seating
+the Ville:Oak Hill College:classroom:classroom student seating
+the Ville:Oak Hill College:classroom:classroom student seating
+the Ville:Oak Hill College:classroom:classroom student seating
+the Ville:Oak Hill College:classroom:classroom student seating
+the Ville:Oak Hill College:classroom:classroom student seating
+the Ville:Oak Hill College:classroom:classroom student seating
+the Ville:Oak Hill College:classroom:classroom student seating
+602 , 10,23
+[['studying and attending classes at Oak Hill College (attending his first class of the day)', 50], ['studying and attending classes at Oak Hill College (taking notes during the lecture)', 30], ['studying and attending classes at Oak Hill College (participating in a group discussion)', 20], ['studying and attending classes at Oak Hill College (taking a short break)', 10], ['studying and attending classes at Oak Hill College (attending his second class of the day)', 70], ['having lunch at Hobbs Cafe', 60], ['streaming and playing games on Twitch', 120], ['taking a break and grabbing a snack', 60], ['streaming and playing games on Twitch', 60], ['having dinner', 60], ['streaming and playing games on Twitch', 180]]
+=====
+[['studying and attending classes at Oak Hill College (attending his first class of the day)', 2]]
++++++
+<persona> He Sihan
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:classroom:classroom podium
+the Ville:Oak Hill College:classroom:classroom podium
+601 , 10,23
+[['attending classes and studying (attending his physics lecture)', 60], ['attending classes and studying (taking notes during the lecture)', 30], ['attending classes and studying (participating in a group discussion)', 30], ['attending classes and studying (reviewing his notes)', 15], ['attending classes and studying (taking a short break)', 5], ['attending classes and studying (working on a physics problem set)', 40], ['having lunch at Hobbs Cafe', 60], ['continuing to attend classes and study', 60], ['taking a break and playing video games or streaming on Twitch', 60], ['continuing to attend classes and study', 60], ['having dinner at Hobbs Cafe', 60], ['streaming games on Twitch or studying', 60], ['socializing or playing games with friends', 60], ['streaming games on Twitch or studying', 120]]
+=====
+[['attending classes and studying (attending his physics lecture)', 1]]
++++++
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+602 , 10,23
+[['attending classes and studying (attending his physics lecture)', 1], ["conversing about A person and Tom Cat discuss attending a physics lecture, studying together at Hobbs Cafe tomorrow, Tom's Twitch streaming plans in the evening, and end on a negative note with the person expressing dislike towards Tom.", 6], ['attending classes and studying (taking notes during the lecture)', 30], ['attending classes and studying (participating in a group discussion)', 30], ['attending classes and studying (reviewing his notes)', 15], ['attending classes and studying (taking a short break)', 5], ['attending classes and studying (working on a physics problem set)', 40], ['having lunch at Hobbs Cafe', 60], ['continuing to attend classes and study', 60], ['taking a break and playing video games or streaming on Twitch', 60], ['continuing to attend classes and study', 60], ['having dinner at Hobbs Cafe', 60], ['streaming games on Twitch or studying', 60], ['socializing or playing games with friends', 60], ['streaming games on Twitch or studying', 120], ['sleeping', 0]]
+=====
+[['attending classes and studying (attending his physics lecture)', 1], ["conversing about A person and Tom Cat discuss attending a physics lecture, studying together at Hobbs Cafe tomorrow, Tom's Twitch streaming plans in the evening, and end on a negative note with the person expressing dislike towards Tom.", 1]]
++++++
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Oak Hill College:hallway:<random>
+the Ville:Dorm for Oak Hill College:common room:common room table
+the Ville:Dorm for Oak Hill College:common room:common room table
+606 , 10,23
+[['attending classes (walking to his first class)', 5], ['attending classes (taking notes during the lecture)', 45], ['attending classes (participating in a group discussion)', 20], ['attending classes (taking a short break)', 5], ['attending classes (reviewing his notes)', 15], ['attending classes (walking to his next class)', 5], ['attending classes (listening to the lecture)', 25], ['having lunch', 60], ['studying at Hobbs Cafe', 180]]
+=====
+[['attending classes (walking to his first class)', 5], ['attending classes (taking notes during the lecture)', 1]]
++++++
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan
+<persona> He Sihan

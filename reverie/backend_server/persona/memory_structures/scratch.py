@@ -410,7 +410,7 @@ class Scratch:
     commonset += f"Currently: {self.currently}\n"
     commonset += f"Lifestyle: {self.lifestyle}\n"
     commonset += f"Daily plan requirement: {self.daily_plan_req}\n"
-    commonset += f"Current Date: {self.curr_time.strftime('%A %B %d')}\n"
+    commonset += f"Current Time: {self.curr_time.strftime('%A %B %d %Y -- %H:%M:%S')}\n"
     return commonset
 
 
@@ -552,7 +552,7 @@ class Scratch:
         x = x.replace(second=0)
         x = (x + datetime.timedelta(minutes=1))
       end_time = (x + datetime.timedelta(minutes=self.act_duration))
-
+    print(end_time, self.curr_time)
     if end_time.strftime("%H:%M:%S") <= self.curr_time.strftime("%H:%M:%S"): 
       return True
     return False

@@ -38,6 +38,22 @@ def generate_agent_chat_summarize_ideas(init_persona,
     summarized_idea = ""
   return summarized_idea
 
+def generate_agent_human_relationship(cur_persona, 
+                                          human, 
+                                          retrieved): 
+  all_embedding_keys = list()
+  for key, val in retrieved.items(): 
+    for i in val: 
+      all_embedding_keys += [i.embedding_key]
+  all_embedding_key_str =""
+  for i in all_embedding_keys: 
+    all_embedding_key_str += f"{i}\n"
+
+  summarized_relationship = run_gpt_prompt_agent_human_relationship(
+                              cur_persona, human,
+                              all_embedding_key_str)[0]
+  return summarized_relationship
+  
 
 def generate_summarize_agent_relationship(init_persona, 
                                           target_persona, 
@@ -102,6 +118,16 @@ def agent_chat_v1(maze, init_persona, target_persona):
                       summarized_ideas[0], 
                       summarized_ideas[1])
 
+def generate_human_agent_utter(init_persona, target_persona, retrieved, curr_chat):
+  # Chat version optimized for speed via batch generation
+  curr_context = (f"{init_persona.scratch.name} " + 
+              f"was {init_persona.scratch.act_description} " + 
+              f"when {target_persona} is initiating a conversation with {init_persona.scratch.name}" + 
+              "\n")
+  x = run_gpt_generate_human_agent_utt(init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
+
+  return x["utterance"], x["end"]
+
 
 def generate_one_utterance(maze, init_persona, target_persona, retrieved, curr_chat): 
   # Chat version optimized for speed via batch generation
@@ -123,38 +149,39 @@ def generate_one_utterance(maze, init_persona, target_persona, retrieved, curr_c
 
   return x["utterance"], x["end"]
 
+def agent_human_chat(persona, human):
+  curr_chat = []
+  log = ""
+  while True:
+    user_chat = input(f"\nChat !!!! :")
+    if user_chat == "exit":
+      break
+    curr_chat += [["A person", user_chat]]
+    focal_points = [f"{human}"]
+    retrieved = new_retrieve(persona, focal_points, 50)
+    relationship = generate_agent_human_relationship(persona, human, retrieved)
+    log += ("relation: " + str(relationship) + '\n')
+    
+    last_chat = ""
+    for i in curr_chat[-4:]:
+      last_chat += ": ".join(i) + "\n"
+    if last_chat: 
+      focal_points = [f"{relationship}", 
+                      last_chat]
+    retrieved = new_retrieve(persona, focal_points, 30)
+    print(retrieved)
+    retrieved['current_relation'] = relationship
+    utt, end = generate_human_agent_utter(persona, human, retrieved, curr_chat)
+    curr_chat += [[persona.scratch.name, utt]]
+    if end:
+      break
+  
+  return curr_chat
+      
+  
 def agent_chat_v2(maze, init_persona, target_persona): 
   curr_chat = []
   print ("July 23")
-  if target_persona.scratch.name == "He Sihan":
-    print("aaaaaa")
-    log = ""
-    while True:
-      focal_points = [f"{target_persona.scratch.name}"]
-      retrieved = new_retrieve(init_persona, focal_points, 50)
-      relationship = generate_summarize_agent_relationship(init_persona, target_persona, retrieved)
-      log += ("relation: " + str(relationship) + '\n')
-      last_chat = ""
-      for i in curr_chat[-4:]:
-        last_chat += ": ".join(i) + "\n"
-      if last_chat: 
-        focal_points = [f"{relationship}", 
-                        f"{target_persona.scratch.name} is {target_persona.scratch.act_description}", 
-                        last_chat]
-      else: 
-        focal_points = [f"{relationship}", 
-                       f"{target_persona.scratch.name} is {target_persona.scratch.act_description}"]
-      retrieved = new_retrieve(init_persona, focal_points, 15)
-      utt, end = generate_one_utterance(maze, init_persona, target_persona, retrieved, curr_chat)
-      curr_chat += [[init_persona.scratch.name, utt]]
-      if end:
-        break
-      user_chat = input(f"{init_persona.scratch.name} : {utt}\nChat !!!! :")
-      if user_chat == "exit":
-        break
-      curr_chat += [[target_persona.scratch.name, user_chat]]
-    
-    return curr_chat
       
   for i in range(8): 
     focal_points = [f"{target_persona.scratch.name}"]

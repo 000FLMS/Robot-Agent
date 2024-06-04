@@ -18,6 +18,6 @@ Following is a conversation between !<INPUT 2>! and !<INPUT 3>!.
 
 !<INPUT 4>!
 
-(Note -- This is the only information that !<INPUT 5>! has: !<INPUT 6>!)
+(Note -- This is the only information that !<INPUT 6>! has: !<INPUT 5>!)
 
 !<INPUT 7>!: "

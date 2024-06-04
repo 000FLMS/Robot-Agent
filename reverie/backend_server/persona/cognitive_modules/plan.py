@@ -973,7 +973,7 @@ def _agent_human_react(persona, human_name: str, maze):
   act_obj_pronunciatio = None
   act_obj_event = (None, None, None)
 
-  _create_react(cur_persona, inserted_act, inserted_act_dur,
+  _robot_chat_react(cur_persona, inserted_act, inserted_act_dur,
     act_address, act_event, chatting_with, convo, chatting_with_buffer, chatting_end_time,
     act_pronunciatio, act_obj_description, act_obj_pronunciatio, 
     act_obj_event, act_start_time)

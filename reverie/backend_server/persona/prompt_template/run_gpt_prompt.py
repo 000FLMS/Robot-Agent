@@ -1247,8 +1247,12 @@ def run_gpt_generate_extract_events(persona,
   def create_prompt_input(persona,
                            conversation,
                            test_input=None): 
+    convo_str = ""
+    for row in conversation: 
+      convo_str += f'{row[0]}: "{row[1]}"\n'
+
     prompt_input = [persona.name, 
-                    conversation.strip()]
+                    convo_str, persona.scratch.curr_time]
     return prompt_input
   
   def __func_clean_up(gpt_response, prompt=""):
@@ -1677,7 +1681,7 @@ def run_gpt_prompt_summarize_conversation(persona, conversation, test_input=None
   prompt_template = "persona/prompt_template/v3_ChatGPT/summarize_conversation_v1.txt" ########
   prompt_input = create_prompt_input(conversation, test_input)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
-  example_output = "conversing about what to eat for lunch" ########
+  example_output = "a conversation about what to eat for lunch" ########
   special_instruction = "The output must continue the sentence above by filling in the <fill in> tag. Don't start with 'this is a conversation about...' Just finish the sentence but do not miss any important details (including who are chatting)." ########
   fail_safe = get_fail_safe() ########
   output = ChatGPT_safe_generate_response(prompt, example_output, special_instruction, 3, fail_safe,

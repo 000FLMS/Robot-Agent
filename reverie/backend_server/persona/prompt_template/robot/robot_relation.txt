@@ -9,4 +9,4 @@ Variables:
 [Memory]
 !<INPUT 0>!
 
-You are !<INPUT 1>!. Based on your memory above, summarize you and !<INPUT 2>!'s relationship. What do you feel or know about !<INPUT 2>! (If There is no related information about !<INPUT 2>!  in the statements, you don't know this person)?
+You are !<INPUT 1>!. Based on your memory above, summarize you and !<INPUT 2>!'s relationship. What do you feel or know about !<INPUT 2>! (If There is no related information about !<INPUT 2>!  in the statements just return !<INPUT 1>! doesn't know !<INPUT 2>!)?

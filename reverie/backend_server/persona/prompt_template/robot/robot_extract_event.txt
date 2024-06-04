@@ -3,6 +3,7 @@ robot_new_plan.txt
 Variables: 
 !<INPUT 0>! -- persona name 
 !<INPUT 1>! -- conversation
+!<INPUT 2>! -- current time
 
 
 
@@ -11,6 +12,9 @@ You are !<INPUT 0>!
 This is a conversation that you have with another person. 
 !<INPUT 1>!
 
-Based on the conversation, extract activities (mentioned in the conversation) that you need to do with start time of each activity.
+Based on the conversation, extract future activities (start after !<INPUT 2>!) that you need to do and start time of each activity.
+(If there is not any future activities)
 Output format: 
 (activity, start time)
+Example output:
+(go to the cafe, 10:00 AM)

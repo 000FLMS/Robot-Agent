@@ -244,3 +244,33 @@ the Ville:Dorm for Oak Hill College:common room:common room table
 =====
 [['attending classes at Oak Hill College (walking to his first class)', 1]]
 +++++
+601 , 10,23
+[['attending classes at Oak Hill College (walking to his first class)', 5], ['attending classes at Oak Hill College (greeting his classmates and chatting with them before class starts)', 10], ['attending classes at Oak Hill College (taking out his notebook and pen to take notes)', 5], ['attending classes at Oak Hill College (listening to the lecture and taking notes)', 45], ['attending classes at Oak Hill College (participating in class discussions)', 20], ['attending classes at Oak Hill College (taking a short break to stretch and use the restroom)', 5], ['attending classes at Oak Hill College (listening to the rest of the lecture and taking notes)', 45], ['attending classes at Oak Hill College (packing up his things and walking to his next class)', 10], ['attending classes at Oak Hill College (greeting his classmates and chatting with them before class starts)', 10], ['attending classes at Oak Hill College (taking out his notebook and pen to take notes)', 25], ['eating lunch at Hobbs Cafe', 60], ['studying and working on assignments at the college library', 60], ['attending a study group session with classmates at the college library', 60], ['Twitch streaming from his dorm room', 60], ['having dinner at Hobbs Cafe', 60], ['playing video games or watching TV', 60], ['attending a study group session with classmates at the college library', 120], ['playing video games or watching TV', 60]]
+=====
+[['attending classes at Oak Hill College (walking to his first class)', 1]]
++++++
+602 , 10,23
+[['attending classes at Oak Hill College (walking to his first class)', 5], ['attending classes at Oak Hill College (taking out his notebook and pen)', 5], ['attending classes at Oak Hill College (listening to the lecture)', 50], ['attending classes at Oak Hill College (taking notes)', 30], ['attending classes at Oak Hill College (participating in class discussions)', 20], ['attending classes at Oak Hill College (packing up his things)', 5], ['attending classes at Oak Hill College (walking to his next class)', 5], ['having lunch at Hobbs Cafe', 60], ['attending classes at Oak Hill College', 120], ['studying and working on assignments at the library', 60], ['attending classes at Oak Hill College', 60], ['streaming games on Twitch', 60], ['having dinner at Hobbs Cafe', 60], ['streaming games on Twitch', 180], ['getting ready for bed and winding down for the day', 60]]
+=====
+[['attending classes at Oak Hill College (walking to his first class)', 2]]
++++++
+601 , 10,23
+[['attending classes at Oak Hill College (walking to his first class)', 5], ['attending classes at Oak Hill College (taking notes during the lecture)', 45], ['attending classes at Oak Hill College (participating in a group discussion)', 20], ['attending classes at Oak Hill College (taking a short break)', 5], ['attending classes at Oak Hill College (reviewing his notes)', 15], ['attending classes at Oak Hill College (working on a class assignment)', 30], ['having lunch at Hobbs Cafe', 60], ['studying at Hobbs Cafe', 240], ['playing video games', 60], ['having dinner', 60]]
+=====
+[['attending classes at Oak Hill College (walking to his first class)', 1]]
++++++
+601 , 10,23
+[['attending classes (walking to his first class)', 5], ['attending classes (taking notes during the lecture)', 45], ['attending classes (participating in a group discussion)', 30], ['attending classes (taking a short break)', 10], ['attending classes (reviewing his notes)', 20], ['attending classes (working on a class assignment)', 45], ['attending classes (packing up his things and leaving the classroom)', 5], ['attending classes (walking to his next class)', 5], ['attending classes (getting settled in his next class)', 15], ['studying at Hobbs Cafe', 60], ['streaming and gaming on Twitch', 120], ['studying at Hobbs Cafe', 180], ['streaming and gaming on Twitch', 60], ['studying at Hobbs Cafe', 120], ['streaming and gaming on Twitch', 60]]
+=====
+[['attending classes (walking to his first class)', 1]]
++++++
+601 , 10,23
+[['attending classes and studying (attending his physics lecture)', 60], ['attending classes and studying (taking notes during the lecture)', 30], ['attending classes and studying (participating in a group discussion)', 30], ['attending classes and studying (reviewing his notes)', 15], ['attending classes and studying (working on a physics problem set)', 45], ['having lunch at Hobbs Cafe', 60], ['streaming on Twitch', 60], ['attending classes and studying', 120], ['hanging out with friends at Hobbs Cafe', 60], ['attending evening classes and studying', 120], ['taking a break and hanging out with friends at Hobbs Cafe', 60], ['having dinner', 60], ['finishing up studying and preparing for bed', 60]]
+=====
+[['attending classes and studying (attending his physics lecture)', 1]]
++++++
+601 , 10,23
+[['attending classes and studying (attending his physics lecture)', 1], ['a conversation about a conversation between a person and Tom Cat about finding the cafe, attending physics lecture, looking for fun, and planning to have lunch at Hobbs Cafe at 12:00 pm', 5], ['attending classes and studying (taking notes during the lecture)', 30], ['attending classes and studying (participating in a group discussion)', 30], ['attending classes and studying (reviewing his notes)', 15], ['attending classes and studying (working on a physics problem set)', 45], ['having lunch at Hobbs Cafe', 60], ['streaming on Twitch', 60], ['attending classes and studying', 120], ['hanging out with friends at Hobbs Cafe', 60], ['attending evening classes and studying', 120], ['taking a break and hanging out with friends at Hobbs Cafe', 60], ['having dinner', 60], ['finishing up studying and preparing for bed', 60]]
+=====
+[['attending classes and studying (attending his physics lecture)', 1], ['a conversation about a conversation between a person and Tom Cat about finding the cafe, attending physics lecture, looking for fun, and planning to have lunch at Hobbs Cafe at 12:00 pm', 0]]
++++++

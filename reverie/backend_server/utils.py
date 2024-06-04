@@ -1,5 +1,5 @@
 # Copy and paste your OpenAI API Key
-#openai_api_key = ""
+openai_api_key = ""
 # Put your name
 key_owner = "000"
 

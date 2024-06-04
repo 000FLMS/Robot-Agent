@@ -28,7 +28,7 @@ import os
 import shutil
 import traceback
 
-from selenium import webdriver
+
 
 from global_methods import *
 from utils import *
@@ -642,7 +642,7 @@ class ReverieServer:
           shutil.rmtree(sim_folder) 
           self.start_path_tester_server()
         elif sim_command.lower() == "chat":
-          self.personas['Tom Cat'].human_move(self.maze, self.personas, self.personas_tile['Tom Cat'],self.curr_time)
+          self.personas['Tom Cat'].robot_move(self.maze, self.personas, self.personas_tile['Tom Cat'],self.curr_time)
         elif sim_command[:3].lower() == "sim":
           int_count = int(sim_command.split()[-1])
           self.simulate(int_count)

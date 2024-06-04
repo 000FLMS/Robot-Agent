@@ -1094,6 +1094,7 @@ def run_gpt_prompt_new_decomp_schedule(persona,
                                        end_time_hour, 
                                        inserted_act,
                                        inserted_act_dur,
+                                       new_events = None,
                                        test_input=None, 
                                        verbose=False): 
   def create_prompt_input(persona, 
@@ -1103,11 +1104,12 @@ def run_gpt_prompt_new_decomp_schedule(persona,
                            end_time_hour, 
                            inserted_act,
                            inserted_act_dur,
+                           new_events,
                            test_input=None): 
     persona_name = persona.name
     start_hour_str = start_time_hour.strftime("%H:%M %p")
     end_hour_str = end_time_hour.strftime("%H:%M %p")
-
+    new_activities = new_events if new_events is not None else ""
     original_plan = ""
     for_time = start_time_hour
     for i in main_act_dur: 
@@ -1136,7 +1138,8 @@ def run_gpt_prompt_new_decomp_schedule(persona,
                     start_hour_str,
                     end_hour_str,
                     end_hour_str,
-                    new_plan_init]
+                    new_plan_init,
+                    new_activities]
     return prompt_input
   
   def __func_clean_up(gpt_response, prompt=""):
@@ -1217,6 +1220,7 @@ def run_gpt_prompt_new_decomp_schedule(persona,
                                      end_time_hour, 
                                      inserted_act,
                                      inserted_act_dur,
+                                     new_events,
                                      test_input)
   prompt = generate_prompt(prompt_input, prompt_template)
   fail_safe = get_fail_safe(main_act_dur, truncated_act_dur)
@@ -1236,6 +1240,47 @@ def run_gpt_prompt_new_decomp_schedule(persona,
   
   return output, [output, prompt, gpt_param, prompt_input, fail_safe]
 
+def run_gpt_generate_extract_events(persona, 
+                                       conversation,
+                                       test_input=None, 
+                                       verbose=False): 
+  def create_prompt_input(persona,
+                           conversation,
+                           test_input=None): 
+    prompt_input = [persona.name, 
+                    conversation.strip()]
+    return prompt_input
+  
+  def __func_clean_up(gpt_response, prompt=""):
+    ret = gpt_response.strip()
+    return ret
+
+  def __func_validate(gpt_response, prompt=""): 
+    try: 
+      gpt_response = __func_clean_up(gpt_response, prompt)
+    except: 
+      return False
+    return True 
+
+  def get_fail_safe(): 
+    return "No new activites"
+
+  gpt_param = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 1000, 
+               "temperature": 0, "top_p": 1, "stream": False,
+               "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
+  prompt_template = "persona/prompt_template/robot/robot_extract_event.txt"
+  prompt_input = create_prompt_input(persona, 
+                                     conversation,
+                                     test_input)
+  prompt = generate_prompt(prompt_input, prompt_template)
+  fail_safe = get_fail_safe()
+  output = safe_generate_response(prompt, gpt_param, 5, fail_safe,
+                                   __func_validate, __func_clean_up)
+
+  if debug or verbose: 
+    print_run_prompts(prompt_template, persona, gpt_param, 
+                      prompt_input, prompt, output)
+  return output, [output, prompt, gpt_param, prompt_input, fail_safe]
 
 
 
@@ -2294,7 +2339,7 @@ def run_gpt_prompt_agent_human_relationship(persona, human, statements, test_inp
   gpt_param = {"engine": "gpt-3.5-turbo-instruct", "max_tokens": 30, 
                "temperature": 0, "top_p": 1, "stream": False,
                "frequency_penalty": 0, "presence_penalty": 0, "stop": None}
-  prompt_template = "persona/prompt_template/v3_ChatGPT/agent_human_relation.txt" ########
+  prompt_template = "persona/prompt_template/robot/robot_relation.txt" ########
   prompt_input = create_prompt_input(persona, human, statements)  ########
   prompt = generate_prompt(prompt_input, prompt_template)
   example_output = 'Jane Doe is working on a project' ########
@@ -2957,7 +3002,7 @@ def run_gpt_generate_iterative_chat_utt(maze, init_persona, target_persona, retr
 
 
 
-def run_gpt_generate_human_agent_utt(init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None, verbose=False): 
+def run_gpt_generate_human_agent_utt(maze, init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None, verbose=False): 
   def create_prompt_input(init_persona, target_persona, retrieved, curr_context, curr_chat, test_input=None):
     persona = init_persona
     prev_convo_insert = "\n"
@@ -2965,7 +3010,7 @@ def run_gpt_generate_human_agent_utt(init_persona, target_persona, retrieved, cu
       for i in persona.a_mem.seq_chat: 
         if i.object == target_persona: 
           v1 = int((persona.scratch.curr_time - i.created).total_seconds()/60)
-          prev_convo_insert += f'{str(v1)} minutes ago, {persona.scratch.name} and {target_persona} were already {i.description} This context takes place after that conversation.'
+          prev_convo_insert += f'{str(v1)} minutes ago, {persona.scratch.name} and {target_persona} already have {i.description} This context takes place after that conversation.'
           break
     if prev_convo_insert == "\n": 
       prev_convo_insert = ""
@@ -2973,10 +3018,11 @@ def run_gpt_generate_human_agent_utt(init_persona, target_persona, retrieved, cu
       if int((persona.scratch.curr_time - persona.a_mem.seq_chat[-1].created).total_seconds()/60) > 480: 
         prev_convo_insert = ""
     print (prev_convo_insert)
+    prev_convo_insert = "Nothing"
 
-    # curr_sector = f"{maze.access_tile(persona.scratch.curr_tile)['sector']}"
-    # curr_arena= f"{maze.access_tile(persona.scratch.curr_tile)['arena']}"
-    curr_location = f"on the hallway"
+    curr_sector = f"{maze.access_tile(persona.scratch.curr_tile)['sector']}"
+    curr_arena= f"{maze.access_tile(persona.scratch.curr_tile)['arena']}"
+    curr_location = f"{curr_arena} in {curr_sector}"
 
     retrieved_str = ""
     retrieve_set = set()
@@ -2997,11 +3043,9 @@ def run_gpt_generate_human_agent_utt(init_persona, target_persona, retrieved, cu
 
     init_iss = f"Here is a brief description of {init_persona.scratch.name}.\n{init_persona.scratch.get_str_iss()}"
     prompt_input = [init_iss, init_persona.scratch.name, retrieved_str, prev_convo_insert,
-      curr_location, curr_context, init_persona.scratch.name, target_persona,
-      convo_str, init_persona.scratch.name, target_persona,
-      init_persona.scratch.name, init_persona.scratch.name,
-      init_persona.scratch.name
-      ]
+      curr_location, curr_context, target_persona,
+      convo_str
+    ]
     return prompt_input
 
   def __chat_func_clean_up(gpt_response, prompt=""): 
@@ -3039,7 +3083,7 @@ def run_gpt_generate_human_agent_utt(init_persona, target_persona, retrieved, cu
     return cleaned_dict
 
   print ("11")
-  prompt_template = "persona/prompt_template/v3_ChatGPT/agent_human_convo.txt" 
+  prompt_template = "persona/prompt_template/robot/robot_convo.txt" 
   prompt_input = create_prompt_input(init_persona, target_persona, retrieved, curr_context, curr_chat) 
   print ("22")
   prompt = generate_prompt(prompt_input, prompt_template)

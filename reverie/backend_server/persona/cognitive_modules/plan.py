@@ -12,6 +12,7 @@ import time
 sys.path.append('../../')
 
 from global_methods import *
+
 from persona.prompt_template.run_gpt_prompt import *
 from persona.cognitive_modules.retrieve import *
 from persona.cognitive_modules.converse import *
@@ -274,8 +275,8 @@ def generate_act_obj_event_triple(act_game_object, act_obj_desc, persona):
   return run_gpt_prompt_act_obj_event_triple(act_game_object, act_obj_desc, persona)[0]
 
 
-def generate_agent_human_convo(cur_persona, human_name):
-  convo = agent_human_chat(cur_persona, human_name)
+def generate_agent_human_convo(cur_persona, human_name, maze):
+  convo = agent_human_chat(cur_persona, human_name, maze)
   all_utt = ""
   for row in convo: 
     speaker = row[0]
@@ -326,7 +327,7 @@ def generate_decide_to_react(init_persona, target_persona, retrieved):
   return run_gpt_prompt_decide_to_react(init_persona, target_persona, retrieved)[0]
 
 
-def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start_hour, end_hour): 
+def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start_hour, end_hour, new_events = None): 
   # Step 1: Setting up the core variables for the function. 
   # <p> is the persona whose schedule we are editing right now. 
   p = persona
@@ -418,7 +419,7 @@ def generate_new_decomp_schedule(persona, inserted_act, inserted_act_dur,  start
                                             start_time_hour,
                                             end_time_hour,
                                             inserted_act,
-                                            inserted_act_dur)[0]
+                                            inserted_act_dur, new_events)[0]
 
 
 ##############################################################################
@@ -716,6 +717,8 @@ def _choose_retrieved(persona, retrieved):
   return None
 
 
+
+
 def _should_react(persona, retrieved, personas): 
   """
   Determines what form of reaction the persona should exihibit given the 
@@ -824,6 +827,67 @@ def _should_react(persona, retrieved, personas):
     return react_mode
   return False
 
+def generate_crutial_event(persona, conversation):
+  return run_gpt_generate_extract_events(persona,conversation)[0]
+
+
+def _robot_chat_react(persona, inserted_act, inserted_act_dur,
+                  act_address, act_event, chatting_with, chat, chatting_with_buffer,
+                  chatting_end_time, 
+                  act_pronunciatio, act_obj_description, act_obj_pronunciatio, 
+                  act_obj_event, act_start_time=None): 
+  p = persona 
+
+  min_sum = 0
+  for i in range (p.scratch.get_f_daily_schedule_hourly_org_index()): 
+    min_sum += p.scratch.f_daily_schedule_hourly_org[i][1]
+  start_hour = int (min_sum/60)
+
+  if (p.scratch.f_daily_schedule_hourly_org[p.scratch.get_f_daily_schedule_hourly_org_index()][1] >= 120):
+    end_hour = start_hour + p.scratch.f_daily_schedule_hourly_org[p.scratch.get_f_daily_schedule_hourly_org_index()][1]/60
+
+  elif (p.scratch.f_daily_schedule_hourly_org[p.scratch.get_f_daily_schedule_hourly_org_index()][1] + 
+      p.scratch.f_daily_schedule_hourly_org[p.scratch.get_f_daily_schedule_hourly_org_index()+1][1] >= 120): 
+    end_hour = start_hour + ((p.scratch.f_daily_schedule_hourly_org[p.scratch.get_f_daily_schedule_hourly_org_index()][1] + 
+              p.scratch.f_daily_schedule_hourly_org[p.scratch.get_f_daily_schedule_hourly_org_index()+1][1])/60)
+
+  else: 
+    end_hour = start_hour + 2
+  end_hour = 23
+  end_hour = int(end_hour)
+
+  dur_sum = 0
+  count = 0 
+  start_index = None
+  end_index = None
+  for act, dur in p.scratch.f_daily_schedule: 
+    if dur_sum >= start_hour * 60 and start_index == None:
+      start_index = count
+    if dur_sum >= end_hour * 60 and end_index == None: 
+      end_index = count
+      break
+    dur_sum += dur
+    count += 1
+
+  new_activities = generate_crutial_event(persona, chat)
+  ret = generate_new_decomp_schedule(p, inserted_act, inserted_act_dur, 
+                                       start_hour, end_hour, new_activities)
+  p.scratch.f_daily_schedule[start_index:end_index] = ret
+  p.scratch.add_new_action(act_address,
+                           inserted_act_dur,
+                           inserted_act,
+                           act_pronunciatio,
+                           act_event,
+                           chatting_with,
+                           chat,
+                           chatting_with_buffer,
+                           chatting_end_time,
+                           act_obj_description,
+                           act_obj_pronunciatio,
+                           act_obj_event,
+                           act_start_time)
+
+
 
 def _create_react(persona, inserted_act, inserted_act_dur,
                   act_address, act_event, chatting_with, chat, chatting_with_buffer,
@@ -880,13 +944,12 @@ def _create_react(persona, inserted_act, inserted_act_dur,
                            act_obj_event,
                            act_start_time)
 
-def _agent_human_react(persona, human_name):
-  # There are two personas -- the persona who is initiating the conversation
-  # and the persona who is the target. We get the persona instances here. 
+def _agent_human_react(persona, human_name: str, maze):
+  
   cur_persona = persona
   
   # Actually creating the conversation here. 
-  convo, duration_min = generate_agent_human_convo(cur_persona, human_name)
+  convo, duration_min = generate_agent_human_convo(cur_persona, human_name, maze)
   convo_summary = generate_convo_summary(cur_persona, convo)
   inserted_act = convo_summary
   inserted_act_dur = duration_min
@@ -1070,9 +1133,23 @@ def plan(persona, maze, personas, new_day, retrieved):
 
   return persona.scratch.act_address
 
-def human_plan(persona, human_name): 
+def robot_plan(persona, maze, new_day, retrieved): 
 
-  _agent_human_react(persona,human_name)
+  # PART 1: Generate the hourly schedule. 
+  if new_day: 
+    _long_term_planning(persona, new_day)
+
+  # PART 2: If the current action has expired, we want to create a new plan.
+  if persona.scratch.act_check_finished(): 
+    _determine_action(persona, maze)
+  
+  
+  # Step 2: Once we choose an event, we need to determine whether the
+  #         persona will take any actions for the perceived event. There are
+  #         three possible modes of reaction returned by _should_react. 
+  #         a) "chat with {target_persona.name}"
+  #         b) "react"
+  #         c) False
   
   # Step 3: Chat-related state clean up. 
   # If the persona is not chatting with anyone, we clean up any of the 
@@ -1081,18 +1158,12 @@ def human_plan(persona, human_name):
     persona.scratch.chatting_with = None
     persona.scratch.chat = None
     persona.scratch.chatting_end_time = None
-  # We want to make sure that the persona does not keep conversing with each
-  # other in an infinite loop. So, chatting_with_buffer maintains a form of 
-  # buffer that makes the persona wait from talking to the same target 
-  # immediately after chatting once. We keep track of the buffer value here. 
-  curr_persona_chat_buffer = persona.scratch.chatting_with_buffer
-  for persona_name, buffer_count in curr_persona_chat_buffer.items():
-    if persona_name != persona.scratch.chatting_with: 
-      persona.scratch.chatting_with_buffer[persona_name] -= 1
 
   return persona.scratch.act_address
 
 
+def robot_activate_chat(persona, human_name, maze):
+  _agent_human_react(persona, human_name, maze)
 
 
 

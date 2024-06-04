@@ -1,0 +1,12 @@
+robot_relation.txt
+
+Variables: 
+!<INPUT 0>! -- memory
+!<INPUT 1>! -- curr persona name
+!<INPUT 2>! -- human name
+
+<commentblockmarker>###</commentblockmarker>
+[Memory]
+!<INPUT 0>!
+
+You are !<INPUT 1>!. Based on your memory above, summarize you and !<INPUT 2>!'s relationship. What do you feel or know about !<INPUT 2>! (If There is no related information about !<INPUT 2>!  in the statements, you don't know this person)?

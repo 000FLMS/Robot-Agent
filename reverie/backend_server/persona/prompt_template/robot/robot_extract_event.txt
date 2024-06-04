@@ -1,0 +1,16 @@
+robot_new_plan.txt
+
+Variables: 
+!<INPUT 0>! -- persona name 
+!<INPUT 1>! -- conversation
+
+
+
+<commentblockmarker>###</commentblockmarker>
+You are !<INPUT 0>!
+This is a conversation that you have with another person. 
+!<INPUT 1>!
+
+Based on the conversation, extract activities (mentioned in the conversation) that you need to do with start time of each activity.
+Output format: 
+(activity, start time)

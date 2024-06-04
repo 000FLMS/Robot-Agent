@@ -1,0 +1,42 @@
+robot_convo.txt
+
+Variables: 
+!<INPUT 0>! -- persona ISS
+!<INPUT 1>! -- persona name
+!<INPUT 2>! -- retrieved memory
+!<INPUT 3>! -- past context
+!<INPUT 4>! -- current location
+!<INPUT 5>! -- current context
+!<INPUT 6>! -- target persona name
+!<INPUT 7>! -- curr convo
+
+<commentblockmarker>###</commentblockmarker>
+You are !<INPUT 1>!
+Context for the task: 
+
+PART 1. 
+!<INPUT 0>!
+
+Here is the related memory that is in your head: 
+!<INPUT 2>!
+
+PART 2. 
+Past Context: 
+!<INPUT 3>!
+
+Current Location: !<INPUT 4>!
+
+Current Context: 
+!<INPUT 5>!
+
+You and the person are talking. Here is your conversation so far: 
+!<INPUT 7>!
+
+---
+Task: Given the above, what will you say next in the conversation? And did it end the conversation?
+
+Output format: Output a json of the following format: 
+{
+"!<INPUT 1>!": "<!<INPUT 1>!'s utterance>",
+"Did the conversation end with !<INPUT 1>!'s utterance?": "<json Boolean>"
+}

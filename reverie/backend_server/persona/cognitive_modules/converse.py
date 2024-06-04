@@ -118,13 +118,13 @@ def agent_chat_v1(maze, init_persona, target_persona):
                       summarized_ideas[0], 
                       summarized_ideas[1])
 
-def generate_human_agent_utter(init_persona, target_persona, retrieved, curr_chat):
+def generate_human_agent_utter(init_persona, target_persona, retrieved, curr_chat, maze):
   # Chat version optimized for speed via batch generation
   curr_context = (f"{init_persona.scratch.name} " + 
               f"was {init_persona.scratch.act_description} " + 
-              f"when {target_persona} is initiating a conversation with {init_persona.scratch.name}" + 
+              f"when a person is initiating a conversation with {init_persona.scratch.name}" + 
               "\n")
-  x = run_gpt_generate_human_agent_utt(init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
+  x = run_gpt_generate_human_agent_utt(maze, init_persona, target_persona, retrieved, curr_context, curr_chat)[0]
 
   return x["utterance"], x["end"]
 
@@ -149,11 +149,11 @@ def generate_one_utterance(maze, init_persona, target_persona, retrieved, curr_c
 
   return x["utterance"], x["end"]
 
-def agent_human_chat(persona, human):
+def agent_human_chat(persona, human, maze):
   curr_chat = []
   log = ""
   while True:
-    user_chat = input(f"\nChat !!!! :")
+    user_chat = input(f"\nChat to {persona.name}:")
     if user_chat == "exit":
       break
     curr_chat += [["A person", user_chat]]
@@ -169,9 +169,10 @@ def agent_human_chat(persona, human):
       focal_points = [f"{relationship}", 
                       last_chat]
     retrieved = new_retrieve(persona, focal_points, 30)
-    print(retrieved)
+  
     retrieved['current_relation'] = relationship
-    utt, end = generate_human_agent_utter(persona, human, retrieved, curr_chat)
+    utt, end = generate_human_agent_utter(persona, human, retrieved, curr_chat, maze)
+    print(f"{persona.scratch.name}: {utt}")
     curr_chat += [[persona.scratch.name, utt]]
     if end:
       break

@@ -239,3 +239,8 @@ the Ville:Dorm for Oak Hill College:common room:common room table
 <persona> He Sihan
 <persona> He Sihan
 <persona> He Sihan
+601 , 10,23
+[['attending classes at Oak Hill College (walking to his first class)', 5], ['attending classes at Oak Hill College (greeting his classmates and professor)', 5], ['attending classes at Oak Hill College (taking out his notebook and pen)', 5], ['attending classes at Oak Hill College (listening to the lecture)', 45], ['attending classes at Oak Hill College (taking notes)', 30], ['attending classes at Oak Hill College (participating in class discussions)', 20], ['attending classes at Oak Hill College (taking a short break)', 5], ['attending classes at Oak Hill College (reviewing his notes)', 15], ['attending classes at Oak Hill College (asking the professor questions)', 10], ['attending classes at Oak Hill College (packing up his things)', 5], ['attending classes at Oak Hill College (walking to his next class)', 5], ['attending classes at Oak Hill College (greeting his classmates and professor)', 5], ['attending classes at Oak Hill College (taking out his notebook and pen)', 25], ['having lunch at Hobbs Cafe', 60], ['attending classes at Oak Hill College', 60], ['Twitch streaming or gaming', 60], ['studying for exams', 60], ['having dinner', 60], ['studying for exams', 240], ['getting ready for bed', 60]]
+=====
+[['attending classes at Oak Hill College (walking to his first class)', 1]]
++++++

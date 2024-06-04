@@ -122,8 +122,8 @@ class Persona:
     """
     return retrieve(self, perceived)
 
-  def human_plan(self,  human_name):
-    return human_plan(self, human_name)
+  def robot_plan(self, maze, new_day, retrieved):
+    return robot_plan(self, maze, new_day, retrieved)
 
 
   def plan(self, maze, personas, new_day, retrieved):
@@ -149,6 +149,9 @@ class Persona:
       The target action address of the persona (persona.scratch.act_address).
     """
     return plan(self, maze, personas, new_day, retrieved)
+
+  def robot_execute(self, maze, plan):
+    return robot_execute(self, maze, plan)
 
 
   def execute(self, maze, personas, plan):
@@ -184,7 +187,7 @@ class Persona:
     """
     reflect(self)
 
-  def human_move(self, maze, personas, curr_tile, curr_time):
+  def robot_move(self, maze, curr_tile, curr_time):
     # Updating persona's scratch memory with <curr_tile>. 
     self.scratch.curr_tile = curr_tile
 
@@ -201,9 +204,9 @@ class Persona:
     self.scratch.curr_time = curr_time
 
     # Main cognitive sequence begins here. 
-    # perceived = self.perceive(maze)
-    # retrieved = self.retrieve(perceived)
-    plan = self.human_plan("He Sihan")
+    perceived = self.perceive(maze)
+    retrieved = self.retrieve(perceived)
+    plan = self.robot_plan(maze, new_day, retrieved)
     self.reflect()
 
     # <execution> is a triple set that contains the following components: 
@@ -212,7 +215,7 @@ class Persona:
     # <description> is a string description of the movement. e.g., 
     #   writing her next novel (editing her novel) 
     #   @ double studio:double studio:common room:sofa
-    return self.execute(maze, personas, plan)
+    return self.robot_execute(maze, plan)
 
 
   def move(self, maze, personas, curr_tile, curr_time):
@@ -267,6 +270,10 @@ class Persona:
   def open_convo_session(self, convo_mode): 
     open_convo_session(self, convo_mode)
     
+
+  def activate_chat(self,maze):
+    robot_activate_chat(self, "Mike", maze)
+
 
 
 

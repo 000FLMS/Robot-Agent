@@ -1,5 +1,5 @@
 # Copy and paste your OpenAI API Key
-openai_api_key = "sk-proj-K8PqU117avKx3I4AJ9TKT3BlbkFJXfvYgp2KF68T1pVSSwVH"
+openai_api_key = ""
 # Put your name
 key_owner = "000"
 
